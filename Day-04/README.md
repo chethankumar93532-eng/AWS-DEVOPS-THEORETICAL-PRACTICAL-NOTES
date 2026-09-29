@@ -1,5 +1,8 @@
 # Day-04 — EC2 Security Groups, NACL & SSH Troubleshooting
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/690acd36-e441-4f84-a628-4999652ca13e" />
+
+
 ## 📌 Day Overview
 
 Day-04 focused on practical **EC2 Security Group configuration and SSH connectivity troubleshooting**.
