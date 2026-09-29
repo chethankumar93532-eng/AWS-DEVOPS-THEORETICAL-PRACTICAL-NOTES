@@ -27,7 +27,8 @@ All hands-on screenshots are available in the `screenshots/` directory.
 
 ## Part 2 — VPC Endpoint & S3 Private Connectivity
 
-![AWS VPC Endpoint & S3 3D Architecture](screenshots/18-vpc-endpoint-s3-3d-architecture.png)
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/232b15fc-674e-4643-b850-79fde1ce6e1f" />
+
 
 ### Architecture Flow
 
