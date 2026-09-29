@@ -16,7 +16,31 @@ Key Learning
 Understood how an S3 Gateway VPC Endpoint allows EC2 instances inside a VPC to access S3 without requiring traffic to traverse the public internet/NAT Gateway, while routing is controlled through the VPC route table.
 
 
+## Hands-On Evidence
 
+### 1. S3 Bucket Verification
+
+![S3 Bucket Verification](screenshots/12-s3-bucket-verification.png)
+
+### 2. VPC Endpoint Setup
+
+![S3 VPC Endpoint Setup](screenshots/13-s3-vpc-endpoint-setup.png)
+
+### 3. VPC Endpoint Created
+
+![S3 VPC Endpoint Created](screenshots/14-s3-vpc-endpoint-created.png)
+
+### 4. EC2 Instance Verification
+
+![EC2 Instance Verification](screenshots/15-ec2-instance-verification.png)
+
+### 5. VPC Resource Map
+
+![VPC Resource Map](screenshots/16-vpc-resource-map-verification.png)
+
+### 6. CLI Connectivity Test
+
+![S3 Endpoint CLI Test](screenshots/17-s3-endpoint-cli-test.png)
 
 
 

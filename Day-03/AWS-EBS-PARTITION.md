@@ -43,7 +43,51 @@ Verified the attached EBS volumes from the EC2 Volumes section.
 Key Learning
 Learned the complete lifecycle of an AWS EBS volume: Create → Attach → Identify → Partition → Mount → Persist → Snapshot → Verify after reboot.
 
+## Hands-On Evidence
 
+### 1. EBS Snapshot List
+
+![EBS Snapshot List](screenshots/01-ebs-snapshot-list.png)
+
+### 2. EC2 Instance Verification
+
+![EC2 Instance Verification](screenshots/02-ec2-instance-verification.png)
+
+### 3. VPC Resource Map
+
+![VPC Resource Map](screenshots/03-vpc-resource-map.png)
+
+### 4. EBS Volume
+
+![EBS Volume List](screenshots/04-ebs-volume-list.png)
+
+### 5. Snapshot Created
+
+![EBS Snapshot Created](screenshots/05-ebs-snapshot-created.png)
+
+### 6. EC2 Instance Status
+
+![EC2 Instance Status](screenshots/06-ec2-instance-status.png)
+
+### 7. Partition UUID
+
+![Partition UUID Verification](screenshots/07-ebs-partition-uuid-verification.png)
+
+### 8. Filesystem Verification
+
+![Filesystem Verification](screenshots/08-ebs-filesystem-verification.png)
+
+### 9. Disk Partition
+
+![Disk Partition Verification](screenshots/09-ebs-disk-partition-verification.png)
+
+### 10. Persistent Mount
+
+![Persistent Mount Verification](screenshots/10-ebs-persistent-mount-verification.png)
+
+### 11. Final Verification
+
+![EBS Partition Final Verification](screenshots/11-ebs-partition-final-verification.png)
 
 
 
