@@ -1,4 +1,4 @@
-Absolutely buddy. I checked your **actual Day-05 Domain / Server Deployment source** and I'm restructuring it using the **same exact 7-step format** we just used for Network Firewall. I’ll keep your actual hands-on status and terminology, including **GoDaddy, Route 53, EC2, Nginx, Certbot, ACM DNS validation, and the Pending Validation state**. 
+
 
 # Day-05 — Domain, EC2 Web Server & SSL/TLS
 
