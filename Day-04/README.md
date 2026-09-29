@@ -1,32 +1,43 @@
-# Day-04 — EC2 Security Groups & SSH Troubleshooting
+# Day-04 — AWS Security & SSH Troubleshooting
 
-## 📌 Day-04 Overview
+Day-04 focuses on **EC2 Security Groups, Network ACLs and practical SSH connectivity troubleshooting**.
 
-Day-04 focused on practical **AWS EC2 Security Group configuration and SSH connectivity troubleshooting**.
+The hands-on exercise used a real SSH timeout, verbose SSH troubleshooting, TCP/22 testing, public-IP verification and correction of an incorrect Security Group source IP.
 
-The hands-on work covered:
+---
 
-- EC2 inbound SSH access
-- TCP port 22
-- Security Group source IP using `/32`
-- Public IP verification
-- `ssh -vvv` troubleshooting
-- `nc -vz` TCP connectivity testing
-- Identifying an incorrect source IP in a Security Group
-- Understanding the difference between network connectivity and SSH authentication
-- Linux disk-usage commands: `df -h` and `du -sh`
+## Day-04 Learning Flow
 
-## 🏗️ Architecture / Network Flow
+```text
+Security Group
+      ↓
+SSH / TCP 22
+      ↓
+Public IP Verification
+      ↓
+Network Path
+      ↓
+NACL / Route
+      ↓
+TCP Connectivity Test
+      ↓
+SSH Verbose Troubleshooting
+      ↓
+Fix Incorrect Source IP
+      ↓
+Successful SSH Login
+```
+
+---
+
+## Architecture / Network Path
 
 ```text
 Local Mac
    │
+   │ SSH / TCP 22
    ▼
-Public IP Verification
-   │
-   ▼
-Security Group
-TCP 22 → Correct Public IP /32
+Internet
    │
    ▼
 Internet Gateway
@@ -35,7 +46,10 @@ Internet Gateway
 Route Table
    │
    ▼
-NACL
+Network ACL
+   │
+   ▼
+Security Group
    │
    ▼
 EC2 Ubuntu
@@ -45,82 +59,124 @@ SSH Service
    │
    ▼
 SSH Authentication
-   │
-   ▼
-✅ Successfully Logged In
 ```
 
-### Complete SSH Troubleshooting Path
+### Security Group Rule Used
 
 ```text
-Client
-  ↓
-Internet
-  ↓
-Internet Gateway
-  ↓
-Route Table
-  ↓
-NACL
-  ↓
-Security Group
-  ↓
-EC2
-  ↓
-SSH Service
-  ↓
-SSH Authentication
+Inbound
+Protocol: TCP
+Port: 22
+Source: Correct Public IPv4 /32
 ```
 
-## 🔐 Security Group Configuration
+---
 
-Inbound rule used during the hands-on:
+## Part-01 Study Notes
 
-| Setting | Value |
-|---|---|
-| Protocol | TCP |
-| Port | 22 |
-| Source | My public IPv4 address `/32` |
-
-Outbound Security Group traffic was also verified.
-
-## 🧪 Troubleshooting Performed
-
-The initial SSH connection produced:
+The detailed interview-preparation study is kept separately, following the same Day-03 structure:
 
 ```text
-ssh: connect to host <EC2-Public-IP> port 22: Operation timed out
+Part-01-SG-NACL-Study/
+└── AWS-SG-NACL-SSH-Study.md
 ```
 
-The troubleshooting sequence was:
+The study covers:
+
+- WHY — Problem Solved
+- HOW — Architecture
+- LEARN & IMPLEMENT
+- HANDS-ON PROOF GATE — Break/Fix
+- WHAT-IF — Failure & Troubleshooting
+- SENIOR DECISION LAYER
+- INTERVIEW ANSWER
+- COMMANDS USED / PRACTICE COMMANDS
+- Memory Hook
+
+---
+
+## Hands-On Evidence
+
+The original hands-on record is kept separately:
+
+```text
+AWS-SG-NACL-SSH.md
+```
+
+It documents the actual Day-04 activity:
+
+- Security Group TCP/22 configuration
+- Public IPv4 `/32`
+- SSH timeout
+- `ssh -vvv`
+- `nc -vz`
+- `curl -4 ifconfig.me`
+- Incorrect source IP discovery
+- Security Group correction
+- Successful SSH connectivity
+- `df -h`
+- `du -sh`
+
+---
+
+## Screenshots
+
+Screenshots remain separate from the study notes, exactly like Day-03:
+
+```text
+screenshots/
+```
+
+The screenshot files should use sequential names such as:
+
+```text
+01-security-group-ssh-rule.png
+02-ec2-instance-verification.png
+03-public-ip-verification.png
+04-ssh-timeout.png
+05-ssh-vvv-troubleshooting.png
+06-nc-port-22-test.png
+07-security-group-source-ip-correction.png
+08-ssh-successful-login.png
+09-disk-usage-df.png
+10-directory-usage-du.png
+```
+
+> The supplied Day-04 DOCX itself does not contain embedded screenshot files, and the Day-04 ZIP contains only the DOCX. I have therefore **not invented or generated replacement screenshots**. Add the actual Day-04 screenshots you captured to this folder using the names above.
+
+---
+
+## Interview Focus
+
+Be able to explain:
 
 ```text
 SSH Timeout
-    ↓
-Verify EC2 Public IP
-    ↓
-Verify Current Public IP
-    ↓
-Check Security Group TCP/22
-    ↓
-Check Route Table
-    ↓
-Check NACL
-    ↓
-Test TCP/22 with nc
-    ↓
-Use ssh -vvv
-    ↓
-Identify incorrect source IP
-    ↓
-Correct Security Group /32
-    ↓
-Retry SSH
-    ↓
-✅ Successful Connection
+   ↓
+Destination IP
+   ↓
+Client Public IP
+   ↓
+Security Group
+   ↓
+Route Table
+   ↓
+NACL
+   ↓
+TCP/22
+   ↓
+SSH Service
+   ↓
+Authentication
 ```
 
-## 🛠️ Commands Practiced
+Most important distinction:
+
+> **Network connectivity failure and SSH authentication failure are different problems.**
+
+---
+
+## Commands Used
 
 ```bash
 ssh -vvv <user>@<EC2-Public-IP>
@@ -134,80 +190,28 @@ df -h
 du -sh
 ```
 
-## 🧠 Key Learning
+---
 
-Before troubleshooting the `.pem` key or username, verify:
+## 🧠 Memory Hook
 
 ```text
-Destination IP
+SSH Failure
      ↓
-Current Public IP
-     ↓
-Security Group
-     ↓
-Route Table
-     ↓
+IP
+ ↓
+SG
+ ↓
+Route
+ ↓
 NACL
-     ↓
-TCP/22 Connectivity
-     ↓
-SSH Authentication
+ ↓
+TCP/22
+ ↓
+SSH
+ ↓
+Authentication
 ```
 
-A wrong source IP in the Security Group can result in an SSH timeout.
+**One sentence to remember:**
 
-## 📚 Study Notes
-
-Detailed Day-04 study/reference notes:
-
-`SG-NACL-SSH-Troubleshooting.md`
-
-## 📄 Original Hands-On Document
-
-The original source document is retained separately:
-
-`SG-NACL 4.docx`
-
-## 🎯 Interview Focus
-
-Be able to explain:
-
-1. How SSH traffic reaches an EC2 instance.
-2. Why TCP port 22 must be permitted by the Security Group.
-3. Why using your public IPv4 address with `/32` restricts SSH access to that source address.
-4. How `ssh -vvv` helps identify where SSH connectivity is failing.
-5. How `nc -vz` tests TCP connectivity independently of SSH authentication.
-6. The difference between a network connectivity problem and an SSH authentication problem.
-7. The complete path:
-
-```text
-Client → Internet → IGW → Route Table → NACL → Security Group → EC2 → SSH
-```
-
-## 📁 Day-04 Structure
-
-```text
-Day-04/
-├── README.md
-├── SG-NACL-SSH-Troubleshooting.md
-└── SG-NACL 4.docx
-```
-
-## ✅ Hands-On Result
-
-```text
-Local Mac
-   ↓
-Public IP verification
-   ↓
-Security Group
-TCP 22 → Correct Public IP/32
-   ↓
-Internet Gateway
-   ↓
-EC2 Ubuntu
-   ↓
-SSH Authentication
-   ↓
-✅ Successfully Logged In
-```
+> **“For an EC2 SSH timeout, prove network reachability first and troubleshoot authentication only after TCP/22 is reachable.”**
