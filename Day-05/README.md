@@ -1,5 +1,8 @@
 # Day-05 — Domain, EC2 Server Deployment, Route 53 & SSL/TLS
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/9cdd675a-a843-40df-96fc-19cca23233e8" />
+
+
 ## Overview
 
 Day-05 focused on deploying a web/application server on EC2, connecting a GoDaddy domain through DNS, configuring Route 53, using Nginx as the web server, and working through SSL/TLS configuration with AWS Certificate Manager.
