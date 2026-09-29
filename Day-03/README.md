@@ -40,3 +40,15 @@ S3 Gateway VPC Endpoint
 Amazon S3
 
 The architecture demonstrates private connectivity from an EC2 instance inside a VPC to Amazon S3 using an S3 Gateway VPC Endpoint, without requiring a NAT Gateway or public internet path.
+
+### Architecture Flow
+
+Private EC2
+↓
+Route Table
+↓
+S3 Gateway VPC Endpoint
+↓
+Amazon S3
+
+The architecture demonstrates private connectivity from an EC2 instance inside a VPC to Amazon S3 using an S3 Gateway VPC Endpoint, without requiring a NAT Gateway or public internet path.
