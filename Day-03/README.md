@@ -22,3 +22,21 @@ AWS EBS → EC2 → Linux Disk → Partition → Filesystem → Mount → /etc/f
 ## Evidence
 
 All hands-on screenshots are available in the `screenshots/` directory.
+
+-----------------------------------------------------------------------------------------------------------------
+
+## Part 2 — VPC Endpoint & S3 Private Connectivity
+
+![AWS VPC Endpoint & S3 3D Architecture](screenshots/18-vpc-endpoint-s3-3d-architecture.png)
+
+### Architecture Flow
+
+Private EC2
+↓
+Route Table
+↓
+S3 Gateway VPC Endpoint
+↓
+Amazon S3
+
+The architecture demonstrates private connectivity from an EC2 instance inside a VPC to Amazon S3 using an S3 Gateway VPC Endpoint, without requiring a NAT Gateway or public internet path.
