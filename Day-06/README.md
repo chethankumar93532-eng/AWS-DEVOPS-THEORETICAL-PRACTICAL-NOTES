@@ -1,5 +1,8 @@
 # Day-06 — AWS Network Firewall & RDP
 
+<img width="1536" height="1024" alt="image" src="https://github.com/user-attachments/assets/e4e76a9f-f13d-45cb-a79e-ba100d00a25e" />
+
+
 ## Overview
 Day-06 focused on AWS Network Firewall, protected VPC routing, GWLB Endpoint, stateful firewall rules and RDP troubleshooting for Windows Server 2025 EC2.
 
