@@ -1,4 +1,4 @@
-Absolutely bro 👍 Here is **Day-02 only**, kept completely separate so you can directly copy and paste it into:
+
 
 ```text
 Day-02/AWS-VPC-EC2-Networking.md
